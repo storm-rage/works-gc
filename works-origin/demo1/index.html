@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">  
+    <title>通用模板</title>
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- 根据special1的值，动态绑定class -->
+        <!-- <div :class="{'special1': isShow}">msg当前值：{{ msg }}</div> -->
+        <div>msg当前值：{{ msg }}</div>
+        <!-- 用三元表达式，根据条件判定是否绑定special2 -->
+        <!-- <div :class="isShow ? 'special2':''">msg当前值：{{ msg }}</div> -->
+        <span class="changeMsg" type="button" @click="changeMsg">{{change}}</span>
+        <span class="changeMsg" type="button" @click="">{{rest}}</span>
+        <hr>
+        <span class="changeMsg" @click="getNowFormatDate">getNowTime</span>
+        <p class="now-time-box">{{ currentdate }}</p>
+        <span class="changeMsg" @click="changeType">{{ showDataType }}</span>
+
+        <div class="task-list-name">{{taskListName}}</div>
+        <ul class="task-list">
+            <li class="task-item" v-for="(item,index) in task">{{ index }}-{{ item }}</li>
+        </ul>
+        <div class="ifclass" :class="{'special':ifclass=0,'special1':ifclass=1,'special2':ifclass=2}">{{ ifclass }}</div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
+</body>
+</html>

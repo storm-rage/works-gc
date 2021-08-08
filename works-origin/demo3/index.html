@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">  
+    <title>通用模板</title>
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <form action="">
+            <div>
+                <span>姓名</span>
+                <input type="text" v-model="uname">
+            </div>
+            <div>
+                <span>性别</span>
+                <input type="radio" value="1" id="male" v-model="gender">
+                <label for="male">男</label>
+                <input type="radio" value="2" id="female" v-model="gender">
+                <label for="female">女</label>
+            </div>
+            <div>
+                <span>爱好</span>
+                <input type="checkbox" value="1" id="ball" v-model="hobby">
+                <label for="ball">篮球</label>
+                <input type="checkbox" value="2" id="sing" v-model="hobby">
+                <label for="sing">唱歌</label>
+                <input type="checkbox" value="3" id="code" v-model="hobby">
+                <label for="code">写代码</label>
+            </div>
+            <div>
+                <span>职业</span>
+                <!-- 如果需要选择多个，可以添加multiple="true"或者multiple -->
+                <select  v-model="occupation" >
+                    <option value="">请选择职业</option>
+                    <option value="1">教师</option>
+                    <option value="2">程序员</option>
+                    <option value="3">律师</option>
+                </select>
+            </div>
+            <div>
+                <span>个人简介</span>
+                <textarea></textarea>
+            </div>
+            <div>
+                <p>{{reverseMsg}}</p>
+                <input type="submit" value="提交" @click.prevent="handle">
+            </div>
+        </form>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
+</body>
+</html>

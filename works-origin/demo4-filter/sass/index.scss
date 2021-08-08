@@ -1,0 +1,42 @@
+// @charset “utf-8”,
+//通用样式
+li {
+    list-style: none;
+}
+li,ul {
+    margin: 0;
+    padding: 0;
+}
+//style
+.tablist {
+    display: flex;
+    // justify-content: space-between;
+    .tabitem {
+        padding: 10px 30px;
+        background: linear-gradient(180deg, #fff, #dedede);
+        cursor: pointer;
+        &.active {
+            color: #fff;
+            background: orange;
+        }
+        &:not(:first-child) {
+            border-left: 1px solid #dedede;
+        }
+    }
+}
+.tabitem-img {
+    height: 400px;
+    line-height: 400px;
+    text-align: center;
+    background: #f9f9f9;
+    overflow: hidden;
+    display: none;
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    &.current {
+        display: block;
+    }
+}

@@ -1,0 +1,8 @@
+li { list-style: none; }
+
+li, ul { margin: 0; padding: 0; }
+
+form div { margin-bottom: 20px; padding: 10px; }
+form div:not(:last-child) { border-bottom: 1px solid #f1f1f1; }
+form div:nth-child(4) { height: auto; }
+form div span:first-child { display: inline-block; width: 100px; }

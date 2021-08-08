@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">  
+    <title>图书管理</title>
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div>
+            <h1>图书管理</h1>
+            <div class="book">
+                <div>
+                    <label for="id">编号：</label>
+                    <input type="text" id="id" v-model='id' :disabled="flag">
+                    <label for="name">名称：</label>
+                    <input type="text" id="name" v-model='name'>
+                    <button @click="handle">提交</button>
+                </div>
+                
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr :key='item.id' v-for="item in books">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.date}}</td>
+                    <td>
+                        <!--  @click.prevent阻止a标签点击后默认刷新的行为 -->
+                        <a href="" @click.prevent='toEdit(item.id)'>修改</a>
+                        <span> | </span>
+                        <a href="" @click.prevent='toDelete(item.id)'>删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button @click="resort">resort</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
+</body>
+</html>

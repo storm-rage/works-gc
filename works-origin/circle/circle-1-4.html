@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>1/4圆形，1/2圆形，任意度数圆形</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>模板内容</div>
+        <div :class="select == 0 ? 'active' : ''">绑定的内容就是{{ msg }}，序号为{{select}}</div>
+        <div class="circle"></div>
+        <div class="circle-1-4">
+            <div class="linear-color"></div>
+        </div>
+        <div class="cricle-1-6">
+            <div class="inner-circle"></div>
+            <div class="inner-circle1"></div>
+        </div>
+        <div class="dashed-line"></div>
+        <div class="dashed-line1"></div>
+        <div class="dashed-line dashed-line2"></div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    msg: "123",
+                    select: 1
+                }
+            }
+        })
+    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+li { list-style: none; }
+
+li, ul { margin: 0; padding: 0; }
+
+.tablist { display: flex; }
+.tablist .tabitem { padding: 10px 30px; background: linear-gradient(180deg, #fff, #dedede); cursor: pointer; }
+.tablist .tabitem.active { color: #fff; background: orange; }
+.tablist .tabitem:not(:first-child) { border-left: 1px solid #dedede; }
+
+.tabitem-img { height: 400px; line-height: 400px; text-align: center; background: #f9f9f9; overflow: hidden; display: none; }
+.tabitem-img img { width: 100%; height: 100%; display: block; }
+.tabitem-img.current { display: block; }
