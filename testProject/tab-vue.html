@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        li {
+            list-style: none;
+            text-align: center;
+        }
+        .tabs {
+            display: flex;
+        }
+        .tabs li {
+            flex: 1;
+            /* flex-grow/flex-shrink/flex-basis */
+            font-size:16px;
+        }
+        .tab {
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            opacity: .5;
+            background: rgba(0,0,0,.1);
+            transition: transform .2s linear 0s;
+            transform: opacity(1);
+        }
+        .tab::after {
+            content: '';
+            height: 20px;
+            display: block;
+        }
+        .active {
+            /* color: #fff; */
+            /* background: #000; */
+            font-weight: 600;
+        }
+        .underline {
+            width: 36px;
+            height: 4px;
+            left: 0px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            background: orange;
+            transition: transform .2s linear 0s;
+            /* 三个tab */
+            transform: translateX(44.5px);
+            /* 四个tab */
+            transform: translateX(28.875px);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <ul class="tabs">
+            <li v-for="(item,index) in lists" 
+                @click="tabChange(index+1);getItem(index);underLine4(index)" 
+                :class="liActive == index ? 'active':''">
+                    {{item}}
+            </li>
+        </ul>
+        <div class="underline" ref="underline"></div>
+        <div class="tab" v-if='check == 1'>
+            {{tab1}}
+        </div>
+        <div class="tab" v-if='check == 2'>
+            {{tab2}}
+        </div>
+        <div class="tab" v-if='check == 3'>
+            {{tab3}}
+        </div>
+        <div class="tab" v-if='check == 4'>
+            {{tab4}}
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:function(){
+                return {
+                    check:1,
+                    msg:123,
+                    lists:[
+                    '最新',
+                    'MGM积分',
+                    '现金红包',
+                    '万里通积分'
+                    ],
+                    tab1:'111',
+                    tab2:'222',
+                    tab3:'333',
+                    tab4:'444',
+                    liActive:0
+                }
+            },
+            methods:{
+                tabChange:function(val){
+                    this.check=val;
+                },
+                getItem:function(index){
+                    this.liActive = index;
+                },
+                // 三个tab
+                underLine:function(index){
+                    // console.log(this);
+                    if(index == 1) {
+                        console.log(index);
+                        this.$refs.underline.style.transform="translateX(170px)";
+                    }else if(index == 2) {
+                        console.log(index);
+                        this.$refs.underline.style.transform="translateX(295px)";
+                    }else {
+                        console.log(index);
+                        this.$refs.underline.style.transform="translateX(44.5px)";
+                    }
+                },
+                // 四个tab
+                underLine4:function(index){
+                    // console.log(this);
+                    if(index == 1) {
+                        console.log(index);
+                        this.$refs.underline.style.transform="translateX(122.625px)";
+                    }else if(index == 2) {
+                        console.log(index);
+                        this.$refs.underline.style.transform="translateX(216.75px)";
+                    }else if(index ==3){
+                        console.log(index);
+                        this.$refs.underline.style.transform="translateX(310.125px)";
+                    }else {
+                        console.log(index);
+                        this.$refs.underline.style.transform="translateX(28.875px)";
+                    }
+                }
+            }
+            
+        })
+       
+        
+    </script>
+
+</body>
+</html>

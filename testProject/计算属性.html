@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <div>{{reverseMessage()}}</div>
+        <div>{{reverseMessage()}}</div>
+        <div>{{reverseString}}</div>
+        <div>{{reverseString}}</div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        //计算属性和方法的区别
+        new Vue({
+            el:'#app',
+            data:function(){
+                return {
+                    msg:'hello',
+                    num:100
+                }
+            },
+            methods:{
+                reverseMessage:function(){
+                    console.log('methods')
+                    return this.msg.split('').reverse().join('');
+                }
+            },
+            computed:{
+                reverseString:function(){
+                    console.log('computed')
+                    //return this.msg.split('').reverse().join('');
+                    let total=0;
+                    for(let i=0;i<this.num;i++){
+                        total+=i;
+                    }
+                    return total;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

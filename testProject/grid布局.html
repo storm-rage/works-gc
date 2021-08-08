@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid布局</title>
+    <style>
+        div {
+            display: inline-grid;
+        }
+        .container {
+            display:grid;
+            /* grid-template-columns: repeat(3,33.33%);
+            grid-template-rows:  repeat(3,33.33%); */
+            /* grid-template-columns: repeat(2,100px  50px 200px);
+            grid-template-rows:  repeat(2,100px  50px 200px); */
+            /* grid-template-columns: repeat(2,100px  50px 200px); */
+            /* grid-template-columns:  100px auto 200px; */
+            grid-template-columns: repeat(6,100px);
+            grid-row-gap:10px;
+            grid-column-gap:10px;
+            grid-template-areas: 'a b c d e f';
+        }
+        .container div {
+            height: 50px;
+        }
+        .item-1{
+            background-color: blue;
+            content: '123';
+            grid-column-start: 1;
+            grid-column-end: 2;
+
+        }
+        .item-2{
+            background-color: rgb(108, 243, 18);
+            content: '123';
+        }
+        .item-3{
+            background-color: rgb(0, 183, 255);
+            content: '123';
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item-1">1</div>
+        <div class="item-2">2</div>
+        <div class="item-3">3</div>
+        <div class="item-1">4</div>
+        <div class="item-2">5</div>
+        <div class="item-3">6</div>
+        <div class="item-1">7</div>
+        <div class="item-2">8</div>
+        <div class="item-3">9</div>
+    </div>
+</body>
+</html>

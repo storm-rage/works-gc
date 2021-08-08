@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        /* .fade-enter-active,.fade-leave-active {
+            transition: opacity .5s;
+        }
+        .fade-enter,.fade-leave-to{
+            opacity: 0;
+        } */
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p v-if='show'>{{msgText}}</p>        
+        <p v-else>{{msg}}</p>
+
+        <child></child><!--局部组件引入-->
+        <child1></child1>
+        <button v-on:click = "show = !show">click</button><br>
+        <button @click='fontSize+=0.1'>点我</button>
+        <br>
+        <!-- <form action="">
+            <label for="male">male</label>
+            <input type="radio" id="male" name="s">
+            <label for="female">female</label>
+            <input type="radio" id="male" name="s">
+        </form> -->
+        <!-- <Father></Father> -->
+        <blog-post title="My journey"></blog-post>
+        <blog-post title="Blogging"></blog-post>
+        <div v-html='content'></div>
+        <div :style="{ fontSize: postFontSize + 'em' }">
+            <blog-post v-for='post in posts' v-bind:key='post.id' v-bind:title='post.title'></blog-post>
+        </div>
+    </div>
+    <div id="app1">
+
+    </div>
+    <script src="./vue.js"></script>
+    <script type="text/javascript">
+        //import Father from './father.vue';
+        Vue.component('blog-post', {
+            props: ['post'],
+            template: ' <div class="blog-post"><h3>{{ post.title }}</h3><button>Enlarge text</button><div v-html="post.content"></div></div>'
+        })
+        var App = {
+            template: '<div>我是局部组件</div>'
+        }
+        var child = {
+            template: '<div>我是引入的局部组件child</div>'
+        }
+        var child1 = {
+            template: '<div>我是引入的局部组件child1</div>'
+        }
+        new Vue({
+            el: '#app',
+            data:function (){
+                return {
+                    msg:'hello Vue.js!',
+                    msgText:'我是v-show的显示功能解释',
+                    show:true,
+                    fontSize:1,
+                    posts:[
+                        {id:1,title:'My journey'},                        
+                        {id:1,title:'My Blog'},
+                        {id:1,title:'My Vue'}
+
+                    ],
+                    content:123
+                }
+            },
+            //template:'<p>1231</p>',
+            styleobj: {
+                backgroundColor:'#999',
+                width:'100px',
+                heigth:'50px',
+                border:'1px dashed #000'
+            },
+            methods : {
+            },
+            components :{
+                'child' : child,
+                child1,
+                //Father
+            }
+        })
+        new Vue({
+            el:'app1',
+            data:function(){
+                return {
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

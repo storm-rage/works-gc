@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父子组件传值</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <blog v-for='post in posts' :key='post.id' :post='post'></blog>
+        
+        <!-- <blog name="vue"></blog> -->
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component('blog',{
+            props:['post'],
+            template:`<div class="blog">
+                        <h3>{{ post.id }}{{ post.title }}{{ post.name }}</h3>
+                        <div v-html="post.key"></div>
+                    </div>`
+        })
+        new Vue({
+            el:'#app',
+            data:function(){
+                return {
+                    msg:'123',
+                    num:100,
+                    posts:[
+                        {id:1,title:'my journey',name:'旅游',content:'1'},
+                        {id:2,title:'blog',name:'博客',content:'2'},
+                        {id:3,title:'my vue',name:'vue',content:'3'}
+                    ]
+                }
+            }
+        })
+    </script>
+</body>
+</html>

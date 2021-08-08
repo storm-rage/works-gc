@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function loadXMLDoc(){
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                //ie7，Firefox，chrome，opera，safari
+                xmlhttp = new XMLHttpRequest();
+            }else {
+                //老板被ie6，5使用Active对象
+                xmlhttp = new ActiveXObject('microsoft.XMLHTTP');
+            }
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    document.getElementById('mydiv').innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open('GET','try/ajax/ajax_info.txt',true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <div id="mydiv">
+        <h2>使用ajax修改文本内容</h2><button type="button">修改</button>
+    </div>
+</body>
+</html>

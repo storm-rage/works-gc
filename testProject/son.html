@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>son</title>
+</head>
+<body>
+    <div id="app">
+        <div></div>
+        <h1 v-if='active'>我是大标题</h1>
+        <h1 v-else>我是二级标题</h1>
+        <p>msg的内容</p>
+        <p>{{msg}}</p>
+        <input type="text" placeholder="请输入内容..." v-model='inputTxt'>
+        <p>{{inputTxt}}</p>
+        <button @click='changeTxt' >change</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script type="text/javascript">
+        var App = {
+            template:'<h1>我是入口组件</h1>'
+        }
+        new Vue({
+            el:'#app',
+            data:function (){
+                return {
+                    msg:'我是msg的内容',
+                    active:false,
+                    inputTxt:'双向绑定内容'
+                }
+            },
+            methods:{
+                //
+                changeTxt:function(){
+                    console.log('123');
+                }
+            },
+            components:{
+                // 'my-header':myhead,
+                // 'my-body':mybody,
+                // 'my-footer':myfooter,
+            },
+            template:
+                //
+                ''
+        })
+    </script>
+</body>
+</html>
